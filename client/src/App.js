@@ -5,8 +5,6 @@ import axios from 'axios'
 import qs from 'qs'
 // import EditorComponent from "./EditorComponent";
 import Editor from "@monaco-editor/react";
-import Output from "./Output";
-
 const socket = io.connect("http://localhost:3001");
 
 function App() {
