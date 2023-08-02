@@ -14,7 +14,7 @@ const io = new Server(server, {
 });
 
 
-app.get('http://localhost:3000',(req,res)=>{
+app.get('http://localhost:3001',(req,res)=>{
   res.json({message:"api working correctly"})
 })
 let mydata = "";
@@ -34,10 +34,7 @@ io.on("connection", (socket) => {
     users = users-1;
     io.emit('user-change',users);
   });
-  
-  
-
-  
+   
 });
 
 // io.emit("send-users", users);
@@ -45,3 +42,5 @@ io.on("connection", (socket) => {
 server.listen(3001, () => {
   console.log("server is running");
 });
+
+

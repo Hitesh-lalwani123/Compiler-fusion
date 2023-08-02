@@ -5,6 +5,7 @@ import axios from 'axios'
 import qs from 'qs'
 // import EditorComponent from "./EditorComponent";
 import Editor from "@monaco-editor/react";
+
 const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -67,11 +68,10 @@ function App() {
     display: "flex",
   };
   return (
-    <div className="App container">
+    <div className="container">
       <div style={style}>Your Personalised Code collaborator</div>
 
-      <div className="flex flex-row space-x-4 items-start px-4 py-4">
-        <div className="flex flex-col w-full h-full justify-start items-end">
+      
           <Editor
             className="text-xl"
             height="85vh"
@@ -88,8 +88,7 @@ function App() {
               socket.emit("send-message", e);
             }}
           />
-        </div>
-      </div>
+      
 
       <div>Active Users Connected: {users}</div>
       <button onClick={handleClick}>Click me</button>
