@@ -72,8 +72,6 @@ function App() {
       
       <select name="myselect" id="selection" onChange={(e)=>{handleLanguageChange(e)}}>
         <option value="cpp">c++</option>
-        <option value="python3">python</option>
-        <option value="javascript">Javascript</option>
         <option value="java">java</option>
       </select>
       <div className="main grid grid-cols-4">
