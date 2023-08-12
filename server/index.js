@@ -6,6 +6,9 @@ const http = require("http");
 const { Server } = require("socket.io");
 const server = http.createServer(app);
 const cors = require("cors");
+const fs = require("fs");
+const PORT = 3001;
+const { type } = require("os");
 // setting middleware
 app.use(cors());
 app.use(bodyParser());
@@ -16,10 +19,21 @@ const io = new Server(server, {
   },
 });
 
+
+app.get('/',(req,res)=>{
+  res.json({message:"working succesfully"})
+})
 app.post("/test", (req, res) => {
   console.log(req.body);
   res.json("recieved");
 });
+
+app.post('/saveFile',(req,res)=>{
+  var code = req.body.code;
+  fs.writeFile('sample.cpp',code,(err)=>{if(err){
+    return console.log(err);
+  }})
+})
 
 app.post("/submissions", (req, res) => {
   // res.json(req);
